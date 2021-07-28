@@ -1,5 +1,7 @@
 # JSON parser - ruby
 
+![status](https://github.com/aesrael/json-parser.rb/actions/workflows/ruby.yml/badge.svg)
+
 This is only an attempt at learning ruby, by building a JSON parser.
 much of this has been guided by the [JSON IETF spec](https://datatracker.ietf.org/doc/html/rfc7159)
 
