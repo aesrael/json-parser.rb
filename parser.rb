@@ -6,10 +6,10 @@ class JSONParser
   def parse(input)
     @pos = 0
     @input = input
-    parse_value
+    parse_node
   end
 
-  def parse_value
+  def parse_node
     skip_whitespace
     value = parse_string || parse_number || parse_object || parse_array || parse_literals
     skip_whitespace
@@ -40,7 +40,7 @@ class JSONParser
       first_field = false
 
       key = parse_hash_key
-      value = parse_value
+      value = parse_node
       expect 'hash value' if value == :nil
 
       hash[key] = value
@@ -66,7 +66,7 @@ class JSONParser
       raise unexpected_end unless char
 
       parse_comma unless first_value
-      value = parse_value
+      value = parse_node
 
       next if value == :nil
 
@@ -193,10 +193,6 @@ class JSONParser
     nil
   end
 
-  def raise_unexpected_char
-    raise("value expected #{char}")
-  end
-
   def parse_hash_key
     key = parse_string
     skip_whitespace
@@ -212,11 +208,11 @@ class JSONParser
   end
 
   def expect(value)
-    raise "#{value} expected in JSON at positon #{@pos}, got '#{char}' instead"
+    raise "#{value} expected in JSON at position #{@pos}, got '#{char}' instead"
   end
 
   def unexpected_token(type = 'token')
-    raise "unexpected #{type} #{char} in JSON at positon #{@pos}"
+    raise "unexpected #{type} #{char} in JSON at position #{@pos}"
   end
 
   def unexpected_end

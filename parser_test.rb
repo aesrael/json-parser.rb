@@ -66,11 +66,11 @@ TEST_CASES = [
   },
   {
     value: "'",
-    to_error_with: "unexpected token ' in JSON at positon 0"
+    to_error_with: "unexpected token ' in JSON at position 0"
   },
   {
     value: '00.01',
-    to_error_with: 'unexpected number 0 in JSON at positon 1'
+    to_error_with: 'unexpected number 0 in JSON at position 1'
   },
   {
     value: '[',
@@ -78,11 +78,11 @@ TEST_CASES = [
   },
   {
     value: '}',
-    to_error_with: 'unexpected token } in JSON at positon 0'
+    to_error_with: 'unexpected token } in JSON at position 0'
   },
   {
     value: '{"foo"}',
-    to_error_with: "colon(:) expected in JSON at positon 6, got '}' instead"
+    to_error_with: "colon(:) expected in JSON at position 6, got '}' instead"
   },
   {
     value: '{"new_line": "\\n", "carriage_return": "\\r", "tab": "\\t", "quote": "\\"", "solidus": "\\/", "reverse_solidus": "\\\\", "form_feed": "\\f"}',
