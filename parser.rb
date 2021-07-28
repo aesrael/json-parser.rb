@@ -1,11 +1,5 @@
 require './constants'
 
-# JSON parser class
-#  - guidelines : https://datatracker.ietf.org/doc/html/rfc7159
-#  - usage -
-#     str =  '{"foo": [1, true, "bar"]}'
-#     JSON = JSONParser.new
-#     puts JSON.parse(str)
 class JSONParser
   include Constants
 
